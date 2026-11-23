@@ -3,121 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Algo de los dos ❤️</title>
+    <title>Un pequeño rincón ❤️</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
+            font-family: Georgia, 'Times New Roman', serif;
             background-color: #F8F3ED;
             color: #51443F;
-            font-family: Georgia, serif;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
-        header {
-            min-height: 90vh;
+        .hero {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 22px;
+            background:
+                radial-gradient(circle at top, #F1E4DF, transparent 65%),
+                #F8F3ED;
         }
 
-        .small-title {
+        .small-text {
             color: #A77D7A;
             letter-spacing: 4px;
-            font-size: 12px;
             text-transform: uppercase;
+            font-size: 11px;
             margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 48px;
-            color: #765B58;
+            font-size: clamp(38px, 8vw, 65px);
             font-weight: normal;
-            margin-bottom: 20px;
+            color: #765B58;
+            margin-bottom: 18px;
         }
 
-        .intro {
-            max-width: 550px;
+        .subtitle {
+            max-width: 450px;
             color: #756762;
             font-size: 17px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-        .button {
+        .discover {
             display: inline-block;
-            padding: 12px 32px;
+            padding: 13px 32px;
             border: 1px solid #A77D7A;
+            border-radius: 30px;
             color: #765B58;
             text-decoration: none;
             letter-spacing: 2px;
             font-size: 12px;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
-        .button:hover {
-            background-color: #A77D7A;
-            color: #FFFFFF;
+        .discover:hover {
+            background-color: #E8DAD5;
+            transform: translateY(-2px);
         }
 
-        section {
-            padding: 90px 20px;
-            text-align: center;
+        .music {
+            width: 100%;
+            max-width: 390px;
+            margin-top: 45px;
+            padding: 24px;
+            background-color: rgba(255,255,255,0.55);
+            border: 1px solid #E8DAD5;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(100,70,60,0.06);
+        }
+
+        .music-note {
+            font-size: 27px;
+            color: #A77D7A;
+            margin-bottom: 5px;
+        }
+
+        .music-title {
+            font-size: 18px;
+            color: #765B58;
+        }
+
+        .music-artist {
+            font-size: 13px;
+            color: #9B8981;
+            margin-bottom: 16px;
+        }
+
+        .music iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .music-caption {
+            font-size: 12px;
+            color: #A77D7A;
+            margin-top: 12px;
         }
 
         .story {
+            padding: 100px 22px;
+            text-align: center;
             background-color: #F1E8E1;
         }
 
-        h2 {
-            color: #765B58;
-            font-size: 32px;
-            font-weight: normal;
-            margin-bottom: 25px;
-        }
-
-        section p {
+        .story-content {
             max-width: 650px;
-            margin: 0 auto 18px;
-            color: #756762;
-            font-size: 16px;
+            margin: 0 auto;
         }
 
-        .line {
-            width: 55px;
-            height: 1px;
-            background-color: #C9A7A1;
-            margin: 30px auto;
+        .story h2 {
+            font-size: 34px;
+            font-weight: normal;
+            color: #765B58;
+            margin-bottom: 30px;
+        }
+
+        .story p {
+            font-size: 17px;
+            color: #756762;
+            margin-bottom: 22px;
+        }
+
+        .heart {
+            color: #A77D7A;
+            font-size: 25px;
+            margin-top: 35px;
         }
 
         footer {
             padding: 35px 20px;
             text-align: center;
-            color: #967875;
-            border-top: 1px solid #E8DAD5;
+            background-color: #F8F3ED;
+            color: #A77D7A;
             font-size: 14px;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 36px;
+        @media (max-width: 500px) {
+            .story {
+                padding: 75px 24px;
             }
 
-            h2 {
-                font-size: 27px;
+            .story h2 {
+                font-size: 29px;
             }
 
-            .intro {
-                font-size: 15px;
+            .story p {
+                font-size: 16px;
             }
         }
     </style>
@@ -125,37 +172,84 @@
 
 <body>
 
-    <header>
-        <p class="small-title">Un pequeño rincón</p>
+    <section class="hero">
 
-        <h1>Algo de los dos</h1>
+        <p class="small-text">Un lugar para nosotros</p>
 
-        <p class="intro">
+        <h1>Un pequeño rincón</h1>
+
+        <p class="subtitle">
             Hay cosas que no necesitan demasiadas palabras.
             Algunas simplemente merecen tener su propio lugar.
         </p>
 
-        <a href="#comienzo" class="button">DESCUBRIR</a>
-    </header>
+        <a href="#historia" class="discover">
+            DESCUBRIR
+        </a>
 
-    <section class="story" id="comienzo">
-        <h2>Nuestro pequeño comienzo</h2>
+        <div class="music">
 
-        <div class="line"></div>
+            <div class="music-note">♫</div>
 
-        <p>
-            El día que nos conocimos, o sea, aquella discoteca.
-        </p>
+            <p class="music-title">
+                Entre la luna y yo
+            </p>
 
-        <p>
-            Fue el principio de algo que ninguno de los dos
-            sabíamos cómo iba a terminar.
-        </p>
+            <p class="music-artist">
+                D.Valentino
+            </p>
 
-        <p>
-            Y aquí empieza nuestro pequeño rincón,
-            donde guardar algunos momentos que son nuestros.
-        </p>
+            <iframe
+                src="https://open.spotify.com/embed/track/5nPxmGUwLt2zEYCHUU2CZe?utm_source=generator"
+                height="152"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+
+            <p class="music-caption">
+                Nuestra canción ❤️
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="story" id="historia">
+
+        <div class="story-content">
+
+            <p class="small-text">Nuestra historia</p>
+
+            <h2>Nuestro pequeño comienzo</h2>
+
+            <p>
+                A veces las historias más bonitas empiezan
+                de la manera más inesperada.
+            </p>
+
+            <p>
+                La nuestra comenzó aquella noche de Halloween.
+                Nos conocimos gracias a tu mejor amigo y,
+                aunque al principio solo fueron unas miradas,
+                sin saberlo estábamos dando el primer paso
+                hacia algo muy especial.
+            </p>
+
+            <p>
+                Quién nos iba a decir que aquella noche acabaría
+                convirtiéndose en el comienzo de una historia
+                que hoy significa tanto para nosotros.
+            </p>
+
+            <p>
+                Y si algo tengo claro, es que me alegro muchísimo
+                de que nuestros caminos acabasen cruzándose.
+            </p>
+
+            <div class="heart">♡</div>
+
+        </div>
+
     </section>
 
     <footer>
