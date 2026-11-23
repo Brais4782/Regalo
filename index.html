@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F8F3ED">
     <title>Un pequeño rincón ❤️</title>
 
     <style>
@@ -21,6 +22,7 @@
             background-color: #F8F3ED;
             color: #51443F;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         .hero {
@@ -127,7 +129,7 @@
         }
 
         .story {
-            padding: 100px 22px;
+            padding: 90px 22px;
             text-align: center;
             background-color: #F1E8E1;
         }
@@ -150,10 +152,116 @@
             margin-bottom: 22px;
         }
 
+        .our-story {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 85px 22px 100px;
+            color: #51443F;
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .story-date {
+            color: #A77D7A;
+            letter-spacing: 4px;
+            font-size: 11px;
+        }
+
+        .story-header h2 {
+            font-size: clamp(30px, 6vw, 42px);
+            font-weight: normal;
+            color: #765B58;
+            margin: 15px 0;
+        }
+
+        .story-header p {
+            color: #9B8981;
+            font-style: italic;
+            font-size: 15px;
+        }
+
+        .story-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .story-card {
+            position: relative;
+            padding: 30px;
+            background: rgba(255,255,255,0.65);
+            border: 1px solid rgba(167,125,122,0.25);
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(100,70,60,0.04);
+            animation: appear 0.9s ease both;
+        }
+
+        .story-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .story-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .story-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .story-card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .story-number {
+            color: #A77D7A;
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .story-card h3 {
+            color: #765B58;
+            font-size: 23px;
+            font-weight: normal;
+            margin: 14px 0;
+        }
+
+        .story-card p {
+            color: #756762;
+            line-height: 1.9;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            border-color: rgba(167,125,122,0.65);
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.8),
+                rgba(232,218,213,0.65)
+            );
+        }
+
+        .story-ending {
+            font-style: italic;
+            text-align: center;
+            margin-top: 25px;
+            color: #765B58 !important;
+        }
+
         .heart {
             color: #A77D7A;
             font-size: 25px;
             margin-top: 35px;
+            text-align: center;
+        }
+
+        .highlight .heart {
+            display: block;
+            font-size: 28px;
+            margin-top: 20px;
         }
 
         footer {
@@ -164,7 +272,31 @@
             font-size: 14px;
         }
 
-        @media (max-width: 500px) {
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 35px 18px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .music {
+                padding: 18px;
+            }
+
             .story {
                 padding: 75px 24px;
             }
@@ -177,8 +309,35 @@
                 font-size: 16px;
             }
 
-            .music {
-                padding: 18px;
+            .our-story {
+                padding: 65px 17px 75px;
+            }
+
+            .story-header {
+                margin-bottom: 40px;
+            }
+
+            .story-card {
+                padding: 23px 20px;
+            }
+
+            .story-card h3 {
+                font-size: 21px;
+            }
+
+            .story-card p {
+                font-size: 14px;
+                line-height: 1.85;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .story-card {
+                animation: none;
             }
         }
     </style>
@@ -188,7 +347,9 @@
 
     <section class="hero">
 
-        <p class="small-text">Un lugar para nosotros</p>
+        <p class="small-text">
+            Un lugar para nosotros
+        </p>
 
         <h1>Un pequeño rincón</h1>
 
@@ -227,11 +388,16 @@
 
     </section>
 
+
+    <!-- HISTORIA DE HALLOWEEN -->
+
     <section class="story" id="historia">
 
         <div class="story-content">
 
-            <p class="small-text">Nuestra historia</p>
+            <p class="small-text">
+                Nuestra historia
+            </p>
 
             <h2>Nuestro pequeño comienzo</h2>
 
@@ -265,11 +431,164 @@
 
     </section>
 
+
+    <!-- NUESTRA HISTORIA POR ETAPAS -->
+
+    <section class="our-story">
+
+        <div class="story-header">
+
+            <span class="story-date">
+                7 DE OCTUBRE · EL COMIENZO
+            </span>
+
+            <h2>Nuestra historia</h2>
+
+            <p>
+                Hay historias que empiezan sin que nos demos cuenta...
+            </p>
+
+        </div>
+
+        <div class="story-timeline">
+
+            <article class="story-card">
+
+                <span class="story-number">01</span>
+
+                <h3>Todo comenzó en verano</h3>
+
+                <p>
+                    Todo empezó en verano, cuando nuestro amigo
+                    Álvaro nos propuso quedar. Fue entonces cuando
+                    empecé a fijarme en ella, aunque todavía no
+                    imaginaba que aquello acabaría convirtiéndose
+                    en algo tan especial.
+                </p>
+
+            </article>
+
+            <article class="story-card">
+
+                <span class="story-number">02</span>
+
+                <h3>Una excusa para acercarme</h3>
+
+                <p>
+                    Llegó septiembre y cada uno comenzó su nuevo
+                    ciclo superior. Durante una actividad de IP
+                    decidí que había llegado el momento de acercarme
+                    a hablar con ella.
+                </p>
+
+                <p>
+                    Quería conocerla un poquito más y encontrar
+                    la oportunidad de empezar a escribirle.
+                </p>
+
+            </article>
+
+            <article class="story-card">
+
+                <span class="story-number">03</span>
+
+                <h3>Las primeras conversaciones</h3>
+
+                <p>
+                    Aquel 7 de octubre, a las 20:08, me decidí
+                    a mandarle un mensaje preguntándole qué tal
+                    le había ido la actividad de IP.
+                </p>
+
+                <p>
+                    Lo que empezó siendo una simple pregunta
+                    terminó convirtiéndose en una semana hablando
+                    durante horas.
+                </p>
+
+                <p>
+                    Fue entonces cuando empecé a tener algo
+                    muy claro: ella me importaba muchísimo
+                    y la quería un montón.
+                </p>
+
+            </article>
+
+            <article class="story-card">
+
+                <span class="story-number">04</span>
+
+                <h3>Aquella noche</h3>
+
+                <p>
+                    Unos días después llegó una noche que nunca
+                    voy a olvidar. Mi amigo me propuso salir
+                    de fiesta y acepté, aunque tenía una razón
+                    muy especial: quería estar con ella.
+                </p>
+
+                <p>
+                    Al llegar a la discoteca estaba bastante tímido.
+                    No sabía muy bien cómo actuar, pero decidí
+                    pasarle el brazo por los hombros y ella
+                    me agarró, quedándose pegada a mí.
+                </p>
+
+                <p>
+                    Aunque estaba cortado, era justo donde
+                    quería estar.
+                </p>
+
+            </article>
+
+            <article class="story-card highlight">
+
+                <span class="story-number">05</span>
+
+                <h3>El primer beso</h3>
+
+                <p>
+                    Más tarde me pidió que la acompañase a la barra.
+                    Mientras caminábamos, se giró hacia mí y
+                    nuestras miradas se encontraron.
+                </p>
+
+                <p>
+                    La miré, me acerqué y finalmente nos besamos.
+                </p>
+
+                <p>
+                    En aquel instante parecía que todo daba vueltas.
+                    Me costaba creer lo que estaba pasando.
+                    Nunca había sentido algo así y, sin duda,
+                    fue una de las experiencias más bonitas
+                    que había vivido.
+                </p>
+
+                <p class="story-ending">
+                    Y así, entre nervios, miradas y un beso
+                    inesperado, comenzó uno de mis recuerdos
+                    favoritos contigo.
+                </p>
+
+                <span class="heart">♥</span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
     <footer>
         Para ti, mi vida ❤️
     </footer>
 
+
+    <!-- SPOTIFY Y FUNCIONAMIENTO DEL BOTÓN -->
+
     <script>
+
         let spotifyController = null;
         let spotifyReady = false;
 
@@ -316,16 +635,15 @@
 
         };
 
+
         document.getElementById('discover').addEventListener('click', () => {
 
             if (!spotifyReady || !spotifyController) {
                 return;
             }
 
-            // Intentar iniciar la canción directamente desde el clic.
             spotifyController.play();
 
-            // Mostrar la historia.
             document.getElementById('historia').scrollIntoView({
                 behavior: 'smooth'
             });
@@ -336,6 +654,7 @@
         });
 
     </script>
+
 
     <script
         src="https://open.spotify.com/embed/iframe-api/v1"
