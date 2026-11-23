@@ -64,23 +64,29 @@
             border: 1px solid #A77D7A;
             border-radius: 30px;
             color: #765B58;
-            text-decoration: none;
+            background: transparent;
             letter-spacing: 2px;
             font-size: 12px;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .discover:hover {
+        .discover:hover:not(:disabled) {
             background-color: #E8DAD5;
             transform: translateY(-2px);
         }
 
+        .discover:disabled {
+            opacity: 0.55;
+            cursor: wait;
+        }
+
         .music {
             width: 100%;
-            max-width: 390px;
-            margin-top: 45px;
+            max-width: 456px;
+            margin-top: 40px;
             padding: 24px;
-            background-color: rgba(255,255,255,0.55);
+            background-color: rgba(255,255,255,0.65);
             border: 1px solid #E8DAD5;
             border-radius: 18px;
             box-shadow: 0 8px 25px rgba(100,70,60,0.06);
@@ -103,17 +109,21 @@
             margin-bottom: 16px;
         }
 
-        .music iframe {
-            display: block;
+        #spotify-player {
             width: 100%;
-            border: none;
-            border-radius: 12px;
+            min-height: 152px;
         }
 
         .music-caption {
             font-size: 12px;
             color: #A77D7A;
             margin-top: 12px;
+        }
+
+        #music-status {
+            font-size: 12px;
+            color: #9B8981;
+            margin-top: 8px;
         }
 
         .story {
@@ -166,6 +176,10 @@
             .story p {
                 font-size: 16px;
             }
+
+            .music {
+                padding: 18px;
+            }
         }
     </style>
 </head>
@@ -183,9 +197,9 @@
             Algunas simplemente merecen tener su propio lugar.
         </p>
 
-        <a href="#historia" class="discover">
-            DESCUBRIR
-        </a>
+        <button class="discover" id="discover" disabled>
+            CARGANDO CANCIÓN...
+        </button>
 
         <div class="music">
 
@@ -199,15 +213,14 @@
                 D.Valentino
             </p>
 
-            <iframe
-                src="https://open.spotify.com/embed/track/5nPxmGUwLt2zEYCHUU2CZe?utm_source=generator"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy">
-            </iframe>
+            <div id="spotify-player"></div>
 
             <p class="music-caption">
                 Nuestra canción ❤️
+            </p>
+
+            <p id="music-status">
+                Preparando el reproductor...
             </p>
 
         </div>
@@ -255,6 +268,79 @@
     <footer>
         Para ti, mi vida ❤️
     </footer>
+
+    <script>
+        let spotifyController = null;
+        let spotifyReady = false;
+
+        window.onSpotifyIframeApiReady = (IFrameAPI) => {
+
+            const element = document.getElementById('spotify-player');
+
+            const options = {
+                width: '100%',
+                height: 152,
+                uri: 'spotify:track:5nPxmGUwLt2zEYCHUU2CZe'
+            };
+
+            IFrameAPI.createController(
+                element,
+                options,
+                (EmbedController) => {
+
+                    spotifyController = EmbedController;
+
+                    spotifyController.addListener('ready', () => {
+
+                        spotifyReady = true;
+
+                        document.getElementById('discover').disabled = false;
+
+                        document.getElementById('discover').textContent =
+                            'DESCUBRIR';
+
+                        document.getElementById('music-status').textContent =
+                            'Pulsa DESCUBRIR para comenzar';
+
+                    });
+
+                    spotifyController.addListener('playback_started', () => {
+
+                        document.getElementById('music-status').textContent =
+                            'Reproduciendo nuestra canción ❤️';
+
+                    });
+
+                }
+            );
+
+        };
+
+        document.getElementById('discover').addEventListener('click', () => {
+
+            if (!spotifyReady || !spotifyController) {
+                return;
+            }
+
+            // Intentar iniciar la canción directamente desde el clic.
+            spotifyController.play();
+
+            // Mostrar la historia.
+            document.getElementById('historia').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            document.getElementById('music-status').textContent =
+                'Intentando reproducir la canción...';
+
+        });
+
+    </script>
+
+    <script
+        src="https://open.spotify.com/embed/iframe-api/v1"
+        async>
+    </script>
 
 </body>
 </html>
