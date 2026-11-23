@@ -1,172 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para ti, mi vida ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+    <title>Algo de los dos ❤️</title>
 
-body {
-  font-family: Georgia, serif;
-  background: #f8f4f0;
-  color: #51443f;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 30px;
-  background:
-    radial-gradient(circle at top right, #f1dcd8, transparent 50%),
-    linear-gradient(135deg, #faf5f0, #eadbd5);
-}
+        body {
+            background-color: #F8F3ED;
+            color: #51443F;
+            font-family: Georgia, serif;
+            line-height: 1.8;
+        }
 
-.line {
-  width: 65px;
-  height: 2px;
-  background: #b58b84;
-  margin-bottom: 35px;
-}
+        header {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+        }
 
-.small {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: #98736d;
-  margin-bottom: 25px;
-}
+        .small-title {
+            color: #A77D7A;
+            letter-spacing: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
 
-h1 {
-  font-size: clamp(45px, 9vw, 85px);
-  font-weight: normal;
-  color: #795c59;
-  margin-bottom: 22px;
-}
+        h1 {
+            font-size: 48px;
+            color: #765B58;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
 
-.description {
-  font-size: 17px;
-  line-height: 1.8;
-  max-width: 450px;
-  color: #786963;
-}
+        .intro {
+            max-width: 550px;
+            color: #756762;
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
 
-.button {
-  margin-top: 42px;
-  padding: 16px 35px;
-  border: 1px solid #a77e78;
-  border-radius: 40px;
-  color: #795c59;
-  text-decoration: none;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  letter-spacing: 1px;
-  transition: 0.3s;
-}
+        .button {
+            display: inline-block;
+            padding: 12px 32px;
+            border: 1px solid #A77D7A;
+            color: #765B58;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
 
-.button:hover {
-  background: #a77e78;
-  color: white;
-  transform: translateY(-4px);
-}
+        .button:hover {
+            background-color: #A77D7A;
+            color: #FFFFFF;
+        }
 
-.decoration {
-  margin-top: 65px;
-  color: #b58b84;
-  font-size: 20px;
-  letter-spacing: 12px;
-}
+        section {
+            padding: 90px 20px;
+            text-align: center;
+        }
 
-.story {
-  min-height: 75vh;
-  padding: 100px 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+        .story {
+            background-color: #F1E8E1;
+        }
 
-.story h2 {
-  color: #795c59;
-  font-size: 38px;
-  font-weight: normal;
-  margin-bottom: 30px;
-}
+        h2 {
+            color: #765B58;
+            font-size: 32px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
 
-.story p {
-  max-width: 550px;
-  line-height: 2;
-  font-size: 17px;
-}
+        section p {
+            max-width: 650px;
+            margin: 0 auto 18px;
+            color: #756762;
+            font-size: 16px;
+        }
 
-footer {
-  padding: 30px;
-  text-align: center;
-  background: #795c59;
-  color: #fff8f3;
-  font-size: 13px;
-}
+        .line {
+            width: 55px;
+            height: 1px;
+            background-color: #C9A7A1;
+            margin: 30px auto;
+        }
 
-</style>
+        footer {
+            padding: 35px 20px;
+            text-align: center;
+            color: #967875;
+            border-top: 1px solid #E8DAD5;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            .intro {
+                font-size: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="hero">
+    <header>
+        <p class="small-title">Un pequeño rincón</p>
 
-  <div class="line"></div>
+        <h1>Algo de los dos</h1>
 
-  <p class="small">Un pequeño rincón</p>
+        <p class="intro">
+            Hay cosas que no necesitan demasiadas palabras.
+            Algunas simplemente merecen tener su propio lugar.
+        </p>
 
-  <h1>Algo de los dos</h1>
+        <a href="#comienzo" class="button">DESCUBRIR</a>
+    </header>
 
-  <p class="description">
-    Hay cosas que no necesitan demasiadas palabras.
-    Algunas simplemente merecen tener su propio lugar.
-  </p>
+    <section class="story" id="comienzo">
+        <h2>Nuestro pequeño comienzo</h2>
 
-  <a href="#historia" class="button">
-    DESCUBRIR
-  </a>
+        <div class="line"></div>
 
-  <div class="decoration">✦ · ✦</div>
+        <p>
+            El día que nos conocimos, o sea, aquella discoteca.
+        </p>
 
-</header>
+        <p>
+            Fue el principio de algo que ninguno de los dos
+            sabíamos cómo iba a terminar.
+        </p>
 
-<section class="story" id="historia">
+        <p>
+            Y aquí empieza nuestro pequeño rincón,
+            donde guardar algunos momentos que son nuestros.
+        </p>
+    </section>
 
-  <h2>Nuestro pequeño comienzo</h2>
-
-  <p>
-    El día que nos conocimos en aquella discoteca
-    fue el principio de algo que ninguno de los dos
-    sabía cómo iba a terminar.
-  </p>
-
-  <br>
-
-  <p>
-    Y aquí empieza nuestro pequeño rincón,
-    donde guardar algunos momentos que son nuestros.
-  </p>
-
-</section>
-
-<footer>
-  Para ti, mi vida ❤️
-</footer>
+    <footer>
+        Para ti, mi vida ❤️
+    </footer>
 
 </body>
 </html>
