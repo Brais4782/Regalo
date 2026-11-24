@@ -1,477 +1,622 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#F8F3ED">
-    <title>Un pequeño rincón ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F8F3ED">
+<title>Un pequeño rincón ❤️</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+:root {
+    --cream: #F8F3ED;
+    --cream-dark: #F1E8E1;
+    --rose: #F1E4DF;
+    --rose-deep: #E8DAD5;
+    --brown: #765B58;
+    --text: #51443F;
+    --muted: #8F7D76;
+    --accent: #A77D7A;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #F8F3ED;
-            color: #51443F;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 22px;
-            background:
-                radial-gradient(circle at top, #F1E4DF, transparent 65%),
-                #F8F3ED;
-        }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.75;
+    overflow-x: hidden;
+}
 
-        .small-text {
-            color: #A77D7A;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-size: 11px;
-            margin-bottom: 20px;
-        }
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 22px;
+    background:
+        radial-gradient(circle at top, var(--rose), transparent 65%),
+        var(--cream);
+}
 
-        h1 {
-            font-size: clamp(38px, 8vw, 65px);
-            font-weight: normal;
-            color: #765B58;
-            margin-bottom: 18px;
-        }
+.small-text {
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font: 11px Arial, sans-serif;
+    margin-bottom: 18px;
+}
 
-        .subtitle {
-            max-width: 450px;
-            color: #756762;
-            font-size: 17px;
-            margin-bottom: 30px;
-        }
+h1 {
+    font-size: clamp(40px, 8vw, 68px);
+    font-weight: normal;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
 
-        .discover {
-            display: inline-block;
-            padding: 13px 32px;
-            border: 1px solid #A77D7A;
-            border-radius: 30px;
-            color: #765B58;
-            background: transparent;
-            letter-spacing: 2px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.subtitle {
+    max-width: 490px;
+    color: #756762;
+    font-size: 17px;
+    margin-bottom: 28px;
+}
 
-        .discover:hover:not(:disabled) {
-            background-color: #E8DAD5;
-            transform: translateY(-2px);
-        }
+.discover, .nav-link, .back-top {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    border-radius: 30px;
+    color: var(--brown);
+    background: transparent;
+    padding: 12px 25px;
+    letter-spacing: 1.5px;
+    font: 12px Arial, sans-serif;
+    cursor: pointer;
+    transition: .25s;
+}
 
-        .discover:disabled {
-            opacity: 0.55;
-            cursor: wait;
-        }
+.discover:hover, .nav-link:hover, .back-top:hover {
+    background: var(--rose-deep);
+    transform: translateY(-2px);
+}
 
-        .music {
-            width: 100%;
-            max-width: 456px;
-            margin-top: 40px;
-            padding: 24px;
-            background-color: rgba(255,255,255,0.65);
-            border: 1px solid #E8DAD5;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(100,70,60,0.06);
-        }
+.discover:disabled {
+    opacity: .55;
+    cursor: wait;
+}
 
-        .music-note {
-            font-size: 27px;
-            color: #A77D7A;
-            margin-bottom: 5px;
-        }
+.music {
+    width: 100%;
+    max-width: 456px;
+    margin-top: 35px;
+    padding: 23px;
+    background: rgba(255,255,255,.72);
+    border: 1px solid var(--rose-deep);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(100,70,60,.06);
+}
 
-        .music-title {
-            font-size: 18px;
-            color: #765B58;
-        }
+.music-note {
+    font-size: 27px;
+    color: var(--accent);
+}
 
-        .music-artist {
-            font-size: 13px;
-            color: #9B8981;
-            margin-bottom: 16px;
-        }
+.music-title {
+    font-size: 18px;
+    color: var(--brown);
+}
 
-        #spotify-player {
-            width: 100%;
-            min-height: 152px;
-        }
+.music-artist {
+    font: 13px Arial, sans-serif;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
 
-        .music-caption {
-            font-size: 12px;
-            color: #A77D7A;
-            margin-top: 12px;
-        }
+#spotify-player {
+    width: 100%;
+    min-height: 152px;
+}
 
-        #music-status {
-            font-size: 12px;
-            color: #9B8981;
-            margin-top: 8px;
-        }
+.music-caption, #music-status {
+    font: 12px Arial, sans-serif;
+    color: var(--accent);
+    margin-top: 10px;
+}
 
-        .story {
-            padding: 90px 22px;
-            text-align: center;
-            background-color: #F1E8E1;
-        }
+#music-status {
+    color: var(--muted);
+}
 
-        .story-content {
-            max-width: 650px;
-            margin: 0 auto;
-        }
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 13px 16px;
+    background: rgba(248,243,237,.96);
+    border-top: 1px solid #eaded7;
+    border-bottom: 1px solid #eaded7;
+    backdrop-filter: blur(12px);
+}
 
-        .story h2 {
-            font-size: 34px;
-            font-weight: normal;
-            color: #765B58;
-            margin-bottom: 30px;
-        }
+.site-nav a {
+    text-decoration: none;
+    color: var(--brown);
+    font: 12px Arial, sans-serif;
+    letter-spacing: .8px;
+    padding: 8px 13px;
+    border-radius: 22px;
+}
 
-        .story p {
-            font-size: 17px;
-            color: #756762;
-            margin-bottom: 22px;
-        }
+.site-nav a:hover {
+    background: var(--rose-deep);
+}
 
-        .our-story {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 85px 22px 100px;
-            color: #51443F;
-        }
+.section {
+    padding: 85px 22px;
+}
 
-        .story-header {
-            text-align: center;
-            margin-bottom: 55px;
-        }
+.section-inner {
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
 
-        .story-date {
-            color: #A77D7A;
-            letter-spacing: 4px;
-            font-size: 11px;
-        }
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
 
-        .story-header h2 {
-            font-size: clamp(30px, 6vw, 42px);
-            font-weight: normal;
-            color: #765B58;
-            margin: 15px 0;
-        }
+.section-heading h2 {
+    font-size: clamp(30px, 6vw, 43px);
+    font-weight: normal;
+    color: var(--brown);
+    margin: 12px 0;
+}
 
-        .story-header p {
-            color: #9B8981;
-            font-style: italic;
-            font-size: 15px;
-        }
+.subtitle-small {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 15px;
+}
 
-        .story-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
+.intro-section {
+    background: var(--cream-dark);
+    text-align: center;
+}
 
-        .story-card {
-            position: relative;
-            padding: 30px;
-            background: rgba(255,255,255,0.65);
-            border: 1px solid rgba(167,125,122,0.25);
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(100,70,60,0.04);
-            animation: appear 0.9s ease both;
-        }
+.intro-copy {
+    max-width: 680px;
+    margin: auto;
+}
 
-        .story-card:nth-child(2) {
-            animation-delay: 0.1s;
-        }
+.intro-copy p {
+    color: #756762;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
 
-        .story-card:nth-child(3) {
-            animation-delay: 0.2s;
-        }
+.heart {
+    color: var(--accent);
+    font-size: 27px;
+    text-align: center;
+    margin-top: 28px;
+}
 
-        .story-card:nth-child(4) {
-            animation-delay: 0.3s;
-        }
+.memories-section {
+    background: var(--cream);
+}
 
-        .story-card:nth-child(5) {
-            animation-delay: 0.4s;
-        }
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
 
-        .story-number {
-            color: #A77D7A;
-            font-size: 12px;
-            letter-spacing: 3px;
-        }
+.memory-tile {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(167,125,122,.28);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(100,70,60,.05);
+    transition: transform .25s;
+}
 
-        .story-card h3 {
-            color: #765B58;
-            font-size: 23px;
-            font-weight: normal;
-            margin: 14px 0;
-        }
+.memory-tile:hover {
+    transform: translateY(-4px);
+}
 
-        .story-card p {
-            color: #756762;
-            line-height: 1.9;
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
+.memory-tile img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
 
-        .highlight {
-            border-color: rgba(167,125,122,0.65);
-            background: linear-gradient(
-                135deg,
-                rgba(255,255,255,0.8),
-                rgba(232,218,213,0.65)
-            );
-        }
+.tile-copy {
+    padding: 22px;
+}
 
-        .story-ending {
-            font-style: italic;
-            text-align: center;
-            margin-top: 25px;
-            color: #765B58 !important;
-        }
+.tile-date {
+    color: var(--accent);
+    font: 10px Arial, sans-serif;
+    letter-spacing: 2px;
+}
 
-        .heart {
-            color: #A77D7A;
-            font-size: 25px;
-            margin-top: 35px;
-            text-align: center;
-        }
+.tile-copy h3 {
+    color: var(--brown);
+    font-size: 23px;
+    font-weight: normal;
+    margin: 8px 0;
+}
 
-        .highlight .heart {
-            display: block;
-            font-size: 28px;
-            margin-top: 20px;
-        }
+.tile-copy p {
+    color: #756762;
+    font-size: 14px;
+}
 
-        footer {
-            padding: 35px 20px;
-            text-align: center;
-            background-color: #F8F3ED;
-            color: #A77D7A;
-            font-size: 14px;
-        }
+.story-section {
+    background: var(--cream-dark);
+}
 
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+.story-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 780px;
+    margin: auto;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.story-card {
+    padding: 27px 30px;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(167,125,122,.25);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(100,70,60,.04);
+    animation: appear .7s ease both;
+}
 
-        @media (max-width: 600px) {
-            .hero {
-                padding: 35px 18px;
-            }
+.story-number {
+    color: var(--accent);
+    font: 11px Arial, sans-serif;
+    letter-spacing: 3px;
+}
 
-            .subtitle {
-                font-size: 15px;
-            }
+.story-card h3 {
+    color: var(--brown);
+    font-size: 22px;
+    font-weight: normal;
+    margin: 8px 0 12px;
+}
 
-            .music {
-                padding: 18px;
-            }
+.story-card p {
+    color: #756762;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 13px;
+}
 
-            .story {
-                padding: 75px 24px;
-            }
+.story-card p:last-child {
+    margin-bottom: 0;
+}
 
-            .story h2 {
-                font-size: 29px;
-            }
+.highlight {
+    border-color: rgba(167,125,122,.65);
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.85),
+        rgba(232,218,213,.65)
+    );
+}
 
-            .story p {
-                font-size: 16px;
-            }
+.story-ending {
+    text-align: center;
+    font-style: italic;
+    color: var(--brown) !important;
+    margin-top: 18px;
+}
 
-            .our-story {
-                padding: 65px 17px 75px;
-            }
+.memory-detail {
+    background: var(--cream);
+}
 
-            .story-header {
-                margin-bottom: 40px;
-            }
+.detail-copy {
+    max-width: 760px;
+    margin: 0 auto 38px;
+}
 
-            .story-card {
-                padding: 23px 20px;
-            }
+.detail-copy p {
+    color: #756762;
+    font-size: 16px;
+    line-height: 1.95;
+    margin-bottom: 19px;
+}
 
-            .story-card h3 {
-                font-size: 21px;
-            }
+.detail-copy .closing {
+    color: var(--brown);
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 28px;
+}
 
-            .story-card p {
-                font-size: 14px;
-                line-height: 1.85;
-            }
-        }
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 35px auto;
+    max-width: 850px;
+}
 
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
+.photo-frame {
+    margin: 0;
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--rose-deep);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(80,55,45,.08);
+}
 
-            .story-card {
-                animation: none;
-            }
-        }
-    </style>
+.photo-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 9px;
+}
+
+.photo-frame figcaption {
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 13px;
+    padding: 9px 4px 3px;
+}
+
+.detail-note {
+    text-align: center;
+    color: var(--accent);
+    font-style: italic;
+    margin-top: 12px;
+}
+
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 650px) {
+    .hero {
+        padding: 38px 18px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .music {
+        padding: 18px;
+    }
+
+    .section {
+        padding: 65px 18px;
+    }
+
+    .intro-copy p {
+        font-size: 16px;
+    }
+
+    .memory-grid, .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-tile img {
+        aspect-ratio: 16/9;
+    }
+
+    .story-card {
+        padding: 22px 20px;
+    }
+
+    .story-card p, .detail-copy p {
+        font-size: 14px;
+    }
+
+    .site-nav {
+        gap: 3px;
+        padding: 9px 5px;
+    }
+
+    .site-nav a {
+        font-size: 11px;
+        padding: 8px 9px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <section class="hero">
+<header class="hero" id="inicio">
+    <p class="small-text">Un lugar para nosotros</p>
 
-        <p class="small-text">
-            Un lugar para nosotros
+    <h1>Un pequeño rincón</h1>
+
+    <p class="subtitle">
+        Hay cosas que no necesitan demasiadas palabras.
+        Algunas simplemente merecen tener su propio lugar.
+    </p>
+
+    <button class="discover" id="discover" disabled>
+        CARGANDO CANCIÓN...
+    </button>
+
+    <div class="music">
+        <div class="music-note">♫</div>
+        <p class="music-title">Entre la luna y yo</p>
+        <p class="music-artist">D.Valentino</p>
+
+        <div id="spotify-player"></div>
+
+        <p class="music-caption">Nuestra canción ❤️</p>
+        <p id="music-status">Preparando el reproductor...</p>
+    </div>
+</header>
+
+<nav class="site-nav" aria-label="Navegación principal">
+    <a href="#inicio">Inicio</a>
+    <a href="#recuerdos">Nuestros momentos</a>
+    <a href="#comienzo">Cómo nos conocimos</a>
+    <a href="#siete-noviembre">Cuando te pedí salir</a>
+</nav>
+
+<main>
+
+<section class="section intro-section" id="historia">
+    <div class="section-inner intro-copy">
+        <p class="small-text">Nuestra historia</p>
+
+        <h2 class="section-heading">
+            Nuestro pequeño comienzo
+        </h2>
+
+        <p>
+            A veces las historias más bonitas empiezan
+            de la manera más inesperada.
         </p>
 
-        <h1>Un pequeño rincón</h1>
-
-        <p class="subtitle">
-            Hay cosas que no necesitan demasiadas palabras.
-            Algunas simplemente merecen tener su propio lugar.
+        <p>
+            La nuestra comenzó aquella noche de Halloween.
+            Nos conocimos gracias a Álvaro y, aunque al principio
+            solo fueron unas miradas, sin saberlo estábamos dando
+            el primer paso hacia algo muy especial.
         </p>
 
-        <button class="discover" id="discover" disabled>
-            CARGANDO CANCIÓN...
-        </button>
+        <p>
+            Quién nos iba a decir que aquella noche acabaría
+            convirtiéndose en el comienzo de una historia
+            que hoy significa tanto para nosotros.
+        </p>
 
-        <div class="music">
+        <p>
+            Y si algo tengo claro, es que me alegro muchísimo
+            de que nuestros caminos acabasen cruzándose.
+        </p>
 
-            <div class="music-note">♫</div>
+        <div class="heart">♡</div>
+    </div>
+</section>
 
-            <p class="music-title">
-                Entre la luna y yo
+<section class="section memories-section" id="recuerdos">
+    <div class="section-inner">
+
+        <div class="section-heading">
+            <p class="small-text">Pequeños capítulos de nosotros</p>
+            <h2>Nuestros momentos</h2>
+            <p class="subtitle-small">
+                Cada recuerdo tiene su propio lugar.
             </p>
-
-            <p class="music-artist">
-                D.Valentino
-            </p>
-
-            <div id="spotify-player"></div>
-
-            <p class="music-caption">
-                Nuestra canción ❤️
-            </p>
-
-            <p id="music-status">
-                Preparando el reproductor...
-            </p>
-
         </div>
 
-    </section>
+        <div class="memory-grid">
 
+            <a class="memory-tile" href="#comienzo">
+                <img src="foto1.jpg" alt="Un recuerdo de nosotros">
+                <div class="tile-copy">
+                    <span class="tile-date">NUESTRO COMIENZO</span>
+                    <h3>Cómo nos conocimos</h3>
+                    <p>
+                        Desde aquella noche de Halloween
+                        hasta nuestro primer beso.
+                    </p>
+                </div>
+            </a>
 
-    <!-- HISTORIA DE HALLOWEEN -->
-
-    <section class="story" id="historia">
-
-        <div class="story-content">
-
-            <p class="small-text">
-                Nuestra historia
-            </p>
-
-            <h2>Nuestro pequeño comienzo</h2>
-
-            <p>
-                A veces las historias más bonitas empiezan
-                de la manera más inesperada.
-            </p>
-
-            <p>
-                La nuestra comenzó aquella noche de Halloween.
-                Nos conocimos gracias a Álvaro y,
-                aunque al principio solo fueron unas miradas,
-                sin saberlo estábamos dando el primer paso
-                hacia algo muy especial.
-            </p>
-
-            <p>
-                Quién nos iba a decir que aquella noche acabaría
-                convirtiéndose en el comienzo de una historia
-                que hoy significa tanto para nosotros.
-            </p>
-
-            <p>
-                Y si algo tengo claro, es que me alegro muchísimo
-                de que nuestros caminos acabasen cruzándose.
-            </p>
-
-            <div class="heart">♡</div>
+            <a class="memory-tile" href="#siete-noviembre">
+                <img src="foto2.jpg" alt="Un recuerdo especial juntos">
+                <div class="tile-copy">
+                    <span class="tile-date">7 DE NOVIEMBRE</span>
+                    <h3>Cuando te pedí salir</h3>
+                    <p>
+                        Un ramo, unas cartas y una pregunta
+                        que cambió nuestra historia.
+                    </p>
+                </div>
+            </a>
 
         </div>
+    </div>
+</section>
 
-    </section>
+<section class="section story-section" id="comienzo">
+    <div class="section-inner">
 
-
-    <!-- NUESTRA HISTORIA POR ETAPAS -->
-
-    <section class="our-story">
-
-        <div class="story-header">
-
-            <span class="story-date">
-                7 DE OCTUBRE · EL COMIENZO
-            </span>
-
-            <h2>Nuestra historia</h2>
-
-            <p>
-                Hay historias que empiezan sin que nos demos cuenta...
+        <div class="section-heading">
+            <p class="small-text">Primer recuerdo</p>
+            <h2>Cómo nos conocimos</h2>
+            <p class="subtitle-small">
+                Una historia que empezó sin que nos diéramos cuenta.
             </p>
-
         </div>
 
         <div class="story-timeline">
 
             <article class="story-card">
-
                 <span class="story-number">01</span>
-
                 <h3>Todo comenzó en verano</h3>
 
                 <p>
-                    Todo empezó en verano, cuando mi amigo
-                    Álvaro me propuso quedar. Fue entonces cuando
-                    empecé a fijarme en ella, aunque todavía no
-                    imaginaba que aquello acabaría convirtiéndose
-                    en algo tan especial.
+                    Todo empezó en verano, cuando mi amigo Álvaro
+                    me propuso quedar. Fue entonces cuando empecé
+                    a fijarme en ella, aunque todavía no imaginaba
+                    que aquello acabaría convirtiéndose en algo
+                    tan especial.
                 </p>
-
             </article>
 
             <article class="story-card">
-
                 <span class="story-number">02</span>
-
                 <h3>Una excusa para acercarme</h3>
 
                 <p>
@@ -485,13 +630,10 @@
                     Quería conocerla un poquito más y encontrar
                     la oportunidad de empezar a escribirle.
                 </p>
-
             </article>
 
             <article class="story-card">
-
                 <span class="story-number">03</span>
-
                 <h3>Las primeras conversaciones</h3>
 
                 <p>
@@ -507,44 +649,38 @@
                 </p>
 
                 <p>
-                    Fue entonces cuando empecé a tener algo
-                    muy claro: ella me importaba muchísimo
-                    y la quería un montón.
+                    Fue entonces cuando empecé a tener algo muy
+                    claro: ella me importaba muchísimo y la quería
+                    un montón.
                 </p>
-
             </article>
 
             <article class="story-card">
-
                 <span class="story-number">04</span>
-
                 <h3>Aquella noche</h3>
 
                 <p>
                     Unos días después llegó una noche que nunca
-                    voy a olvidar. Mi amigo me propuso salir
-                    de fiesta y acepté, aunque tenía una razón
-                    muy especial: quería estar con ella.
+                    voy a olvidar. Mi amigo me propuso salir y
+                    acepté, aunque tenía una razón muy especial:
+                    quería estar con ella.
                 </p>
 
                 <p>
-                    Al llegar a la discoteca estaba bastante tímido.
-                    No sabía muy bien cómo actuar, pero decidí
-                    pasarle el brazo por los hombros y ella
-                    me agarró, quedándose pegada a mí.
+                    Al llegar estaba bastante tímido. No sabía
+                    muy bien cómo actuar, pero decidí pasarle
+                    el brazo por los hombros y ella me agarró,
+                    quedándose pegada a mí.
                 </p>
 
                 <p>
                     Aunque estaba cortado, era justo donde
                     quería estar.
                 </p>
-
             </article>
 
             <article class="story-card highlight">
-
                 <span class="story-number">05</span>
-
                 <h3>El primer beso</h3>
 
                 <p>
@@ -568,98 +704,215 @@
                 <p class="story-ending">
                     Y así, entre nervios, miradas y un beso
                     inesperado, comenzó uno de mis recuerdos
-                    favoritos contigo, porque si, esa chica especial que me llamo la atención, eres tu Uxi.
+                    favoritos contigo. Porque sí, esa chica
+                    especial que me llamó la atención eres tú, Uxi.
                 </p>
 
-                <span class="heart">♥</span>
-
+                <div class="heart">♥</div>
             </article>
 
         </div>
+    </div>
+</section>
+<section class="section memory-detail" id="siete-noviembre">
+    <div class="section-inner">
 
-    </section>
+        <div class="section-heading">
+            <p class="small-text">Segundo recuerdo · 7 de noviembre</p>
+            <h2>Cuando te pedí salir</h2>
+            <p class="subtitle-small">
+                El día en el que dejamos de imaginarlo y empezamos a vivirlo.
+            </p>
+        </div>
 
+        <div class="detail-copy">
 
-    <footer>
-        Para ti, mi vida ❤️
-    </footer>
+            <p>
+                Aquel día llevaba tiempo preparándolo con muchísima
+                ilusión. Quería que fuese especial, que tuvieses
+                un recuerdo bonito y, sobre todo, que supieses
+                lo importante que te habías vuelto para mí.
+            </p>
 
+            <p>
+                Llegué a tu portal sobre las cinco de la tarde
+                con un ramo de flores blancas, entre lirios y
+                tulipanes, y unas cuantas cartitas que había
+                preparado para ti. Eran pequeños detalles,
+                pero cada uno llevaba un poquito de todo lo
+                que quería decirte.
+            </p>
 
-    <!-- SPOTIFY Y FUNCIONAMIENTO DEL BOTÓN -->
+            <p>
+                Después cogimos el autobús hacia el centro de Vigo.
+                Mi idea era que fuésemos a jugar a los bolos o
+                a los dardos, pero estabas cansada, así que
+                decidimos tomar algo tranquilamente.
+            </p>
 
-    <script>
+            <p>
+                Durante ese rato acabamos hablando de cosas
+                personales. Recuerdo especialmente cuando me
+                llamaron mis padres y terminé contándote algunas
+                cosas de aquel verano y de mi situación familiar.
+                Me gustó poder confiar en ti y sentir que
+                escuchabas lo que tenía que contarte.
+            </p>
 
-        let spotifyController = null;
-        let spotifyReady = false;
+            <p>
+                Más tarde fuimos a cenar al restaurante italiano
+                Nel. Después de cenar nos sentamos en la plaza
+                de Compostela, disfrutando de aquel momento
+                juntos, sin saber que todavía quedaba por
+                llegar la parte más importante del día.
+            </p>
 
-        window.onSpotifyIframeApiReady = (IFrameAPI) => {
+            <p>
+                Entonces me preguntaste si tenía algo que decirte.
+                Y sí, lo tenía. Llevaba todo el día pensando
+                en ese momento y, aunque estaba nervioso,
+                sabía que quería hacerlo.
+            </p>
 
-            const element = document.getElementById('spotify-player');
+            <p>
+                Te miré y te pregunté:
+            </p>
 
-            const options = {
-                width: '100%',
-                height: 152,
-                uri: 'spotify:track:5nPxmGUwLt2zEYCHUU2CZe'
-            };
+            <p class="closing">
+                «Uxía, ¿quieres ser mi novia?»
+            </p>
 
-            IFrameAPI.createController(
-                element,
-                options,
-                (EmbedController) => {
+            <p>
+                Y dijiste que sí. Los dos acabamos emocionándonos
+                muchísimo. Fue uno de esos momentos en los que
+                cuesta encontrar las palabras, porque por fin
+                estaba pasando algo que llevaba tiempo deseando.
+            </p>
 
-                    spotifyController = EmbedController;
+            <p>
+                Después te acompañé a casa. Y mientras volvía,
+                no podía dejar de pensar en lo bonito que había
+                sido todo aquel día: las flores, las cartas,
+                las conversaciones, la cena y, sobre todo,
+                tu respuesta.
+            </p>
 
-                    spotifyController.addListener('ready', () => {
+            <p class="closing">
+                Aquel 7 de noviembre dejó de ser un día cualquiera.
+                Se convirtió en el día en el que empezó oficialmente
+                nuestra historia. ❤️
+            </p>
 
-                        spotifyReady = true;
+        </div>
 
-                        document.getElementById('discover').disabled = false;
+        <div class="photo-gallery">
 
-                        document.getElementById('discover').textContent =
-                            'DESCUBRIR';
+            <figure class="photo-frame">
+                <img src="foto1.jpg" alt="Un recuerdo juntos">
+                <figcaption>
+                    Un recuerdo que siempre guardaré.
+                </figcaption>
+            </figure>
 
-                        document.getElementById('music-status').textContent =
-                            'Pulsa DESCUBRIR para comenzar';
+            <figure class="photo-frame">
+                <img src="foto2.jpg" alt="Otro recuerdo juntos">
+                <figcaption>
+                    Y muchos momentos bonitos por venir.
+                </figcaption>
+            </figure>
 
-                    });
+        </div>
 
-                    spotifyController.addListener('playback_started', () => {
+        <p class="detail-note">
+            Gracias por formar parte de esta historia.
+        </p>
 
-                        document.getElementById('music-status').textContent =
-                            'Reproduciendo nuestra canción ❤️';
+        <div class="heart">♥</div>
 
-                    });
+        <div style="text-align:center; margin-top:35px;">
+            <a href="#inicio" class="back-top">VOLVER AL PRINCIPIO</a>
+        </div>
 
-                }
-            );
+    </div>
+</section>
 
-        };
+</main>
 
+<footer>
+    Para ti, Uxi. ❤️
+    <br>
+    Un pequeño rincón de nuestra historia.
+</footer>
 
-        document.getElementById('discover').addEventListener('click', () => {
+<script>
+let spotifyController = null;
+let spotifyReady = false;
 
-            if (!spotifyReady || !spotifyController) {
-                return;
-            }
+window.onSpotifyIframeApiReady = (IFrameAPI) => {
 
-            spotifyController.play();
+    const element = document.getElementById("spotify-player");
 
-            document.getElementById('historia').scrollIntoView({
-                behavior: 'smooth'
+    const options = {
+        width: "100%",
+        height: 152,
+        uri: "spotify:track:5nPxmGUwLt2zEYCHUU2CZe"
+    };
+
+    IFrameAPI.createController(
+        element,
+        options,
+        (EmbedController) => {
+
+            spotifyController = EmbedController;
+
+            spotifyController.addListener("ready", () => {
+
+                spotifyReady = true;
+
+                document.getElementById("discover").disabled = false;
+
+                document.getElementById("discover").textContent =
+                    "DESCUBRIR";
+
+                document.getElementById("music-status").textContent =
+                    "Pulsa DESCUBRIR para comenzar";
+
             });
 
-            document.getElementById('music-status').textContent =
-                'Intentando reproducir la canción...';
+            spotifyController.addListener("playback_started", () => {
 
-        });
+                document.getElementById("music-status").textContent =
+                    "Reproduciendo nuestra canción ❤️";
 
-    </script>
+            });
 
+        }
+    );
 
-    <script
-        src="https://open.spotify.com/embed/iframe-api/v1"
-        async>
-    </script>
+};
+
+document.getElementById("discover").addEventListener("click", () => {
+
+    if (!spotifyReady || !spotifyController) {
+        return;
+    }
+
+    spotifyController.play();
+
+    document.getElementById("historia").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    document.getElementById("music-status").textContent =
+        "Intentando reproducir la canción...";
+
+});
+</script>
+
+<script
+    src="https://open.spotify.com/embed/iframe-api/v1"
+    async>
+</script>
 
 </body>
 </html>
